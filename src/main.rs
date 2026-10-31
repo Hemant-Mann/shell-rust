@@ -11,6 +11,10 @@ fn main() {
         if command.trim().to_string() == "exit" {
             break;
         }
-        println!("{}: command not found", command.trim())
+        if command.starts_with("echo ") {
+            print!("{}", &command[5..]);
+        } else {
+            println!("{}: command not found", command.trim())
+        }
     }
 }
